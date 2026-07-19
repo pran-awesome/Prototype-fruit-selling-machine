@@ -33,9 +33,8 @@ sees a single origin (sessions/cookies just work).
 1. Backend (Flask, port 5000):
 
    ```bash
-   python3 -m venv .venv
-   .venv/bin/pip install -r backend/requirements.txt
-   .venv/bin/python backend/app.py
+   python3 -m pip install --break-system-packages -r backend/requirements.txt
+   python3 backend/app.py
    ```
 
 2. Frontend (Vite, port 5173):
@@ -53,7 +52,7 @@ Build the frontend once; Flask then serves it at `/`:
 
 ```bash
 npm run build --prefix frontend
-.venv/bin/python backend/app.py   # serves API + built app on port 5000
+python3 backend/app.py   # serves API + built app on port 5000
 ```
 
 ## User flow (all mocked)

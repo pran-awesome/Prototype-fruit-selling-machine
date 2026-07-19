@@ -17,7 +17,7 @@ See `README.md` for the full flow, endpoints, env vars, and run commands.
 
 Two dev servers must run together:
 
-- Backend (Flask) on port 5000: `.venv/bin/python backend/app.py`
+- Backend (Flask) on port 5000: `python3 backend/app.py`
 - Frontend (Vite) on port 5173: `npm run dev --prefix frontend`
 
 Open http://localhost:5173/ (mobile-first; use a narrow/portrait window).
@@ -27,9 +27,10 @@ Open http://localhost:5173/ (mobile-first; use a narrow/portrait window).
 - The Vite dev server **proxies `/api` to Flask** (`frontend/vite.config.js`).
   Always hit the app via the Vite origin (`:5173`) in dev so session cookies are
   same-origin. Hitting `:5000` directly serves the API but not the dev frontend.
-- Python deps live in a repo-local venv at `/workspace/.venv` (the base image
-  lacked `python3-venv`; it is installed during environment setup). Run the
-  backend with `.venv/bin/python`, not the system `python3`.
+- Python deps are installed into the system interpreter via
+  `pip install --break-system-packages` (the update script does this). The base
+  image lacked `python3-venv`, so a venv is intentionally avoided for robustness.
+  Run the backend with plain `python3 backend/app.py`.
 - This VM is **not a Raspberry Pi**, so `RPi.GPIO` is absent. `door_control.py`
   auto-detects this and falls back to a logging stub — this is expected. The
   real-hardware code path is guarded and only runs on a Pi.
