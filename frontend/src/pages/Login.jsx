@@ -29,7 +29,7 @@ export default function Login() {
   return (
     <Screen className="screen-center">
       <Logo />
-      <p className="tagline">Fresh salad, unlocked in seconds.</p>
+      <p className="tagline">Fresh X, unlocked in seconds.</p>
 
       <form className="card" onSubmit={onSubmit}>
         <h1 className="card-title">Sign in</h1>
@@ -38,7 +38,7 @@ export default function Login() {
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="anything works"
+            placeholder="username"
             autoComplete="username"
           />
         </label>
@@ -48,7 +48,7 @@ export default function Login() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="anything works"
+            placeholder="password"
             autoComplete="current-password"
           />
         </label>
