@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Screen from '../components/Screen.jsx'
 import Logo from '../components/Logo.jsx'
+import Icon from '../components/Icon.jsx'
 import { api } from '../api.js'
 
 export default function Verify() {
@@ -35,11 +36,15 @@ export default function Verify() {
       <Logo small />
       <div className="card">
         <motion.div
-          className="shield"
-          animate={{ scale: [1, 1.08, 1] }}
+          className="icon-orb"
+          animate={{ scale: [1, 1.06, 1], boxShadow: [
+            '0 0 24px rgba(52,211,153,0.35)',
+            '0 0 40px rgba(52,211,153,0.6)',
+            '0 0 24px rgba(52,211,153,0.35)',
+          ] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          🛡️
+          <Icon name="shield" size={40} />
         </motion.div>
         <h1 className="card-title">Verify identity</h1>
         <p className="muted">

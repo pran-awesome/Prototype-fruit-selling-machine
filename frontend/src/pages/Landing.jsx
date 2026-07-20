@@ -2,19 +2,19 @@ import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Screen from '../components/Screen.jsx'
 import Logo from '../components/Logo.jsx'
-import SaladBowl from '../components/SaladBowl.jsx'
-import FloatingVeggies from '../components/FloatingVeggies.jsx'
+import HeroVisual from '../components/HeroVisual.jsx'
+import Icon from '../components/Icon.jsx'
 
 const features = [
-  { icon: '🕓', title: '24 / 7', text: 'Grab a salad any time, day or night.' },
-  { icon: '📱', title: 'Scan & Go', text: 'Your phone is the key — no app to install.' },
-  { icon: '🌿', title: 'Always Fresh', text: 'Crisp veggies, restocked daily.' },
+  { icon: 'clock', title: '24 / 7', text: 'Grab a salad any time, day or night.' },
+  { icon: 'qr', title: 'Scan & Go', text: 'Your phone is the key — no app to install.' },
+  { icon: 'leaf', title: 'Always Fresh', text: 'Crisp veggies, restocked daily.' },
 ]
 
 const steps = [
-  { n: 1, icon: '📷', title: 'Scan', text: 'Scan the cabinet QR code.' },
-  { n: 2, icon: '🛡️', title: 'Verify', text: 'Confirm it’s you in one tap.' },
-  { n: 3, icon: '🥗', title: 'Grab', text: 'The door unlocks — enjoy!' },
+  { n: 1, icon: 'scan', title: 'Scan', text: 'Scan the cabinet QR code.' },
+  { n: 2, icon: 'shield', title: 'Verify', text: 'Confirm it’s you in one tap.' },
+  { n: 3, icon: 'unlock', title: 'Grab', text: 'The door unlocks — enjoy!' },
 ]
 
 const container = {
@@ -31,8 +31,6 @@ export default function Landing() {
 
   return (
     <Screen className="screen-landing">
-      <FloatingVeggies dense />
-
       <div className="landing-top">
         <Logo small />
         <Link className="pill-link" to="/admin">
@@ -41,7 +39,7 @@ export default function Landing() {
       </div>
 
       <motion.section className="hero" variants={container} initial="hidden" animate="show">
-        <SaladBowl />
+        <HeroVisual />
 
         <motion.h1 className="hero-title" variants={item}>
           Farm-fresh salad,
@@ -61,7 +59,7 @@ export default function Landing() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.96 }}
           >
-            🥗 Get Fresh
+            Get Fresh
           </motion.button>
           <button className="btn btn-ghost" onClick={() => navigate('/login')}>
             I already have an account
@@ -69,9 +67,15 @@ export default function Landing() {
         </motion.div>
 
         <motion.div className="chips" variants={item}>
-          <span className="chip">🥬 Vegan</span>
-          <span className="chip">♻️ Zero-waste</span>
-          <span className="chip">⚡ 10-sec unlock</span>
+          <span className="chip">
+            <Icon name="leaf" size={14} /> Vegan
+          </span>
+          <span className="chip">
+            <Icon name="recycle" size={14} /> Zero-waste
+          </span>
+          <span className="chip">
+            <Icon name="bolt" size={14} /> 10-sec unlock
+          </span>
         </motion.div>
       </motion.section>
 
@@ -86,7 +90,9 @@ export default function Landing() {
         >
           {features.map((f) => (
             <motion.div key={f.title} className="feature" variants={item} whileHover={{ y: -4 }}>
-              <div className="feature-icon">{f.icon}</div>
+              <div className="feature-icon">
+                <Icon name={f.icon} size={22} />
+              </div>
               <div className="feature-title">{f.title}</div>
               <div className="feature-text">{f.text}</div>
             </motion.div>
@@ -106,7 +112,9 @@ export default function Landing() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="step-badge">{s.icon}</div>
+              <div className="step-badge">
+                <Icon name={s.icon} size={20} />
+              </div>
               <div className="step-body">
                 <div className="step-title">
                   {s.n}. {s.title}
@@ -126,7 +134,7 @@ export default function Landing() {
         Start now →
       </motion.button>
 
-      <footer className="landing-footer">Fresh X · Phase 1 prototype 🌱</footer>
+      <footer className="landing-footer">Fresh X · Phase 1 prototype</footer>
     </Screen>
   )
 }

@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Screen from '../components/Screen.jsx'
 import Logo from '../components/Logo.jsx'
-import FloatingVeggies from '../components/FloatingVeggies.jsx'
 import { api } from '../api.js'
 
 export default function Login() {
@@ -29,7 +28,6 @@ export default function Login() {
 
   return (
     <Screen className="screen-center">
-      <FloatingVeggies />
       <Logo />
       <p className="tagline">Fresh salad, unlocked in seconds.</p>
 
