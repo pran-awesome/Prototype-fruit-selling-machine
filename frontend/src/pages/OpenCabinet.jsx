@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Screen from '../components/Screen.jsx'
 import Logo from '../components/Logo.jsx'
+import Icon from '../components/Icon.jsx'
 import { api } from '../api.js'
 
 export default function OpenCabinet() {
@@ -13,7 +14,7 @@ export default function OpenCabinet() {
   useEffect(() => {
     // Guard: must be logged in AND verified.
     api.me().then((me) => {
-      if (!me.logged_in) navigate('/')
+      if (!me.logged_in) navigate('/login')
       else if (!me.verified) navigate('/verify')
     })
   }, [navigate])
@@ -46,7 +47,7 @@ export default function OpenCabinet() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i }}
             >
-              🥗
+              <Icon name="leaf" size={26} />
             </motion.div>
           ))}
         </div>
@@ -54,13 +55,14 @@ export default function OpenCabinet() {
         {error && <div className="error">{error}</div>}
 
         <motion.button
-          className="btn btn-open"
+          className="btn btn-open btn-icon"
           onClick={onOpen}
           disabled={loading}
           whileTap={{ scale: 0.96 }}
           whileHover={{ scale: 1.02 }}
         >
-          {loading ? 'Unlocking…' : '🔓 Open Cabinet'}
+          <Icon name="unlock" size={20} />
+          {loading ? 'Unlocking…' : 'Open Cabinet'}
         </motion.button>
       </div>
     </Screen>
