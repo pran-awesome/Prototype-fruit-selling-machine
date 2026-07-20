@@ -13,7 +13,7 @@ export default function OpenCabinet() {
   useEffect(() => {
     // Guard: must be logged in AND verified.
     api.me().then((me) => {
-      if (!me.logged_in) navigate('/')
+      if (!me.logged_in) navigate('/login')
       else if (!me.verified) navigate('/verify')
     })
   }, [navigate])

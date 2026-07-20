@@ -13,7 +13,7 @@ export default function Verify() {
   useEffect(() => {
     // Guard: must be logged in to reach this screen.
     api.me().then((me) => {
-      if (!me.logged_in) navigate('/')
+      if (!me.logged_in) navigate('/login')
     })
   }, [navigate])
 

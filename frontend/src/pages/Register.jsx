@@ -54,7 +54,7 @@ export default function Register() {
         <motion.button className="btn btn-primary" type="submit" disabled={loading} whileTap={{ scale: 0.97 }}>
           {loading ? 'Creating…' : 'Register'}
         </motion.button>
-        <Link className="btn btn-ghost" to="/">
+        <Link className="btn btn-ghost" to="/login">
           Back to sign in
         </Link>
       </form>
