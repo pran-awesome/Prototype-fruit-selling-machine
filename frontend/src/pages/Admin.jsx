@@ -28,7 +28,7 @@ function AdminLogin({ onLoggedIn }) {
   return (
     <form className="card" onSubmit={onSubmit}>
       <h1 className="card-title">Admin sign in</h1>
-      <p className="muted">Username must be “admin” · any password.</p>
+      <p className="muted">Username is not correct</p>
       <label className="field">
         <span>Username</span>
         <input value={username} onChange={(e) => setUsername(e.target.value)} />
