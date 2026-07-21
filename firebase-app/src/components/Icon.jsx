@@ -65,6 +65,25 @@ const PATHS = {
       <path d="M10 8 9 5h4M13 5l3-2" />
     </>
   ),
+  tomato: (
+    <>
+      <path d="M12 8c-3.6 0-6.5 2.7-6.5 6S8.4 20 12 20s6.5-2.7 6.5-6S15.6 8 12 8Z" />
+      <path d="M12 8c0-1.6-1-2.8-2.6-3M12 8c0-1.6 1-2.8 2.6-3M12 8V5.5" />
+    </>
+  ),
+  cucumber: (
+    <>
+      <rect x="4.5" y="9" width="15" height="6" rx="3" transform="rotate(-32 12 12)" />
+      <path d="M10 9.5l.01.01M12.5 12l.01.01M9 12.5l.01.01" />
+    </>
+  ),
+  onion: (
+    <>
+      <path d="M10.5 4c-1 4-1 8 0 12M13.5 4c1 4 1 8 0 12" />
+      <ellipse cx="12" cy="17" rx="3.2" ry="4" />
+      <path d="M10 20.5l-1 1.5M12 21v1.5M14 20.5l1 1.5" />
+    </>
+  ),
 }
 
 export default function Icon({ name, size = 24, className = '' }) {

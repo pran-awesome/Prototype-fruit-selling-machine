@@ -10,9 +10,9 @@ import { api } from '../service.js'
 // are sent to the same Open Cabinet page (single shared door in Phase 1).
 const items = [
   { id: 'salad', name: 'Salad', desc: 'Crisp mixed greens', icon: 'bowl', featured: true },
-  { id: 'fruit', name: 'Fruit Bowl', desc: 'Seasonal fresh fruit', icon: 'apple' },
-  { id: 'wrap', name: 'Veggie Wrap', desc: 'Rolled & ready to go', icon: 'wrap' },
-  { id: 'smoothie', name: 'Smoothie', desc: 'Chilled & blended', icon: 'cup' },
+  { id: 'tomato', name: 'Tomato', desc: 'Juicy & ripe', icon: 'tomato' },
+  { id: 'cucumber', name: 'Cucumber', desc: 'Cool & crunchy', icon: 'cucumber' },
+  { id: 'spring-onion', name: 'Spring Onion', desc: 'Fresh & zesty', icon: 'onion' },
 ]
 
 const container = {
