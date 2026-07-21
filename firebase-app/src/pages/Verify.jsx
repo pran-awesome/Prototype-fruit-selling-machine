@@ -23,7 +23,7 @@ export default function Verify() {
     setLoading(true)
     try {
       await api.verify()
-      navigate('/open')
+      navigate('/menu')
     } catch (err) {
       setError(err.message)
     } finally {

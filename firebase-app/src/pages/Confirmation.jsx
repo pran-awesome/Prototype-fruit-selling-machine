@@ -10,6 +10,7 @@ export default function Confirmation() {
   const navigate = useNavigate()
   const { state } = useLocation()
   const message = state?.message || 'Cabinet unlocked. Please take your item.'
+  const item = state?.item || null
 
   async function onDone() {
     await api.logout().catch(() => {})
@@ -32,7 +33,7 @@ export default function Confirmation() {
         >
           <Icon name="check" size={44} />
         </motion.div>
-        <h1 className="card-title">Unlocked!</h1>
+        <h1 className="card-title">{item ? `Enjoy your ${item}!` : 'Unlocked!'}</h1>
         <p className="muted">{message}</p>
 
         <motion.button className="btn btn-primary" onClick={onDone} whileTap={{ scale: 0.97 }}>
