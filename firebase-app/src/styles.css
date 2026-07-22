@@ -51,7 +51,7 @@ body {
   max-width: 430px;
   min-height: 620px;
   max-height: calc(100dvh - 40px);
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--line-soft);
   border-radius: 28px;
   box-shadow: var(--shadow);
@@ -63,6 +63,24 @@ body {
 }
 .device-frame::-webkit-scrollbar {
   display: none;
+}
+
+/* --------------------------------------------------------- Background logo */
+.bg-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  max-width: 400px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+.bg-logo svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* --------------------------------------------------------------------- Screen */
@@ -113,7 +131,9 @@ body {
 /* ----------------------------------------------------------------------- Card */
 .card {
   width: 100%;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 22px;
   border: 1px solid var(--line-soft);
