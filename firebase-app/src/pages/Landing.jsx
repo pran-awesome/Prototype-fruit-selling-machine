@@ -48,7 +48,7 @@ export default function Landing() {
         </motion.h1>
 
         <motion.p className="hero-sub" variants={item}>
-          Fresh X is a smart cabinet stocked with crisp, ready-to-eat salads.
+          Fresh Lab is a smart cabinet stocked with crisp, ready-to-eat salads.
           Scan, verify, and grab yours in seconds.
         </motion.p>
 
@@ -80,7 +80,7 @@ export default function Landing() {
       </motion.section>
 
       <section className="section">
-        <h2 className="section-title">Why Fresh X</h2>
+        <h2 className="section-title">Why Fresh Lab</h2>
         <motion.div
           className="feature-grid"
           variants={container}
@@ -134,7 +134,7 @@ export default function Landing() {
         Start now →
       </motion.button>
 
-      <footer className="landing-footer">Fresh X · Phase 1 prototype</footer>
+      <footer className="landing-footer">Fresh Lab · Phase 1 prototype</footer>
     </Screen>
   )
 }
