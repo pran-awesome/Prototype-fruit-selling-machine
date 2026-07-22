@@ -8,13 +8,11 @@ import Menu from './pages/Menu.jsx'
 import OpenCabinet from './pages/OpenCabinet.jsx'
 import Confirmation from './pages/Confirmation.jsx'
 import Admin from './pages/Admin.jsx'
-import AnimatedBackground from './components/AnimatedBackground.jsx'
 
 export default function App() {
   const location = useLocation()
   return (
     <div className="app-shell">
-      <AnimatedBackground />
       <div className="device-frame">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
