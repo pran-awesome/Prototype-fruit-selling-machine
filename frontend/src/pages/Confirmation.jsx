@@ -3,12 +3,14 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Screen from '../components/Screen.jsx'
 import Logo from '../components/Logo.jsx'
+import Icon from '../components/Icon.jsx'
 import { api } from '../api.js'
 
 export default function Confirmation() {
   const navigate = useNavigate()
   const { state } = useLocation()
   const message = state?.message || 'Cabinet unlocked. Please take your item.'
+  const item = state?.item || null
 
   async function onDone() {
     await api.logout().catch(() => {})
@@ -29,9 +31,9 @@ export default function Confirmation() {
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 260, damping: 14 }}
         >
-          ✓
+          <Icon name="check" size={44} />
         </motion.div>
-        <h1 className="card-title">Unlocked!</h1>
+        <h1 className="card-title">{item ? `Enjoy your ${item}!` : 'Unlocked!'}</h1>
         <p className="muted">{message}</p>
 
         <motion.button className="btn btn-primary" onClick={onDone} whileTap={{ scale: 0.97 }}>

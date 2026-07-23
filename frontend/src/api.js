@@ -27,7 +27,7 @@ export const api = {
   register: (username, password) =>
     request('/api/register', { method: 'POST', body: { username, password } }),
   verify: () => request('/api/verify', { method: 'POST' }),
-  openCabinet: () => request('/api/open-cabinet', { method: 'POST' }),
+  openCabinet: (item) => request('/api/open-cabinet', { method: 'POST', body: { item } }),
   logout: () => request('/api/logout', { method: 'POST' }),
   adminLogin: (username, password) =>
     request('/api/admin/login', { method: 'POST', body: { username, password } }),

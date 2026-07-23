@@ -60,12 +60,13 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
 
-def _record_open_event(user: str, source: str, result: dict) -> dict:
+def _record_open_event(user: str, source: str, result: dict, item: str | None = None) -> dict:
     event = {
         "id": len(open_events) + 1,
         "timestamp": _now_iso(),
         "user": user,
         "source": source,  # "user" or "admin"
+        "item": item,
         "mode": result.get("mode", "stub"),
         "detail": result.get("detail", ""),
     }
@@ -120,16 +121,17 @@ def open_cabinet():
     if not session.get("verified"):
         return jsonify({"ok": False, "error": "Please verify your identity first."}), 403
 
+    data = request.get_json(silent=True) or {}
+    item = (data.get("item") or "").strip() or None
+
     result = door_control.open_door()
     user = session.get("username", "unknown")
-    _record_open_event(user=user, source="user", result=result)
-    return jsonify(
-        {
-            "ok": True,
-            "message": "Cabinet unlocked. Please take your item.",
-            "detail": result["detail"],
-        }
+    _record_open_event(user=user, source="user", result=result, item=item)
+    message = (
+        f"Cabinet unlocked. Please take your {item}." if item
+        else "Cabinet unlocked. Please take your item."
     )
+    return jsonify({"ok": True, "message": message, "detail": result["detail"]})
 
 
 @app.get("/api/me")

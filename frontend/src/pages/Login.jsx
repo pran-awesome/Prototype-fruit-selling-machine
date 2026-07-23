@@ -69,9 +69,14 @@ export default function Login() {
         </Link>
       </form>
 
-      <Link className="admin-link" to="/admin">
-        Admin dashboard
-      </Link>
+      <div className="login-links">
+        <Link className="admin-link" to="/">
+          ← Home
+        </Link>
+        <Link className="admin-link" to="/admin">
+          Admin dashboard
+        </Link>
+      </div>
     </Screen>
   )
 }
